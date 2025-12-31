@@ -9,7 +9,7 @@ void initValueArray(ValueArray* array) {
     array->count = 0;
 }
 
-oid writeValueArray(ValueArray* array, Value value) {
+void writeValueArray(ValueArray* array, Value value) {
     if (array->capacity < array->count + 1) {
         int oldCapacity = array->capacity;
         array->capacity = GROW_CAPACITY(oldCapacity);
