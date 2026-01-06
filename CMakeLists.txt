@@ -13,4 +13,6 @@ add_executable(vm main.c
         debug.h
         value.c
         value.h
-        value.c)
+        value.c
+        vm.c
+        vm.h)
