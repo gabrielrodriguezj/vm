@@ -2,6 +2,9 @@
 #define VM_VM_H
 
 #include "chunk.h"
+#include "value.h"
+
+#define STACK_MAX 256
 
 typedef struct {
     Chunk* chunk;
@@ -10,6 +13,8 @@ typedef struct {
      * call it “PC”, for program counter.
      */
     uint8_t* ip; // instruction pointer
+    Value stack[STACK_MAX];
+    Value* stackTop;
 } VM;
 
 
@@ -22,4 +27,7 @@ typedef enum {
 void initVM();
 void freeVM();
 InterpretResult interpret(Chunk* chunk);
+void push(Value value);
+Value pop();
+
 #endif //VM_VM_H
