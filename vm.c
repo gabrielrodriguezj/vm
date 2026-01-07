@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include "common.h"
+#include "compiler.h"
 #include "debug.h"
 #include "vm.h"
 
@@ -80,14 +81,7 @@ push(a op b); \
 #undef BINARY_OP
 }
 
-InterpretResult interpret(Chunk* chunk) {
-    /*
-     * ip is initialized by pointing it at the first byte of code in the chunk.
-     * That instructions haven’t been executed yet, so ip points to the instruction about to be executed.
-     * This will be true during the entire time the VM is running: the IP always points to the next instruction,
-     * not the one currently being handled.
-     */
-    vm.chunk = chunk;
-    vm.ip = vm.chunk->code;
-    return run();
+InterpretResult interpret(const char* source) {
+    compile(source);
+    return INTERPRET_OK;
 }
