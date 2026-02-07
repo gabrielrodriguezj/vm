@@ -1,2 +1,2 @@
 # vm
-Code of a VM based on the code written by Robert Nystrom
+Code of a VM for Lox language. Based on the book "Crafting interpreters" written by Robert Nystrom.
