@@ -9,6 +9,7 @@ typedef enum {
     VAL_NUMBER,
   } ValueType;
 
+// Data structure "Tagged union"
 typedef struct {
     ValueType type;
     union {
