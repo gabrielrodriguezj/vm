@@ -37,6 +37,11 @@ typedef enum {
 
 struct Obj {
     ObjType type;
+
+    // Defining an "intrusive list": the Obj struct itself will be
+    // the linked list node. Each Obj gets a pointer to the next Obj
+    // in the chain.
+    struct Obj* next;
 };
 
 struct ObjString {

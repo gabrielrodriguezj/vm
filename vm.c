@@ -30,9 +30,11 @@ static void runtimeError(const char* format, ...) {
 
 void initVM() {
     resetStack();
+    vm.objects = NULL; // When we first initialize the VM, there are no allocated objects.
 }
 
 void freeVM() {
+    freeObjects();
 }
 
 void push(Value value) {
