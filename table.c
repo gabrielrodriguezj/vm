@@ -30,7 +30,7 @@ void freeTable(Table* table) {
 }
 
 /**
- * This function is the real core of the hash table. It’s responsible for
+ * This function is the real core of the hash table. It's responsible for
  * taking a key and an array of buckets, and figuring out which bucket the
  * entry belongs in. This function is also where linear probing and collision
  * handling come into play.
