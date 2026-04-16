@@ -266,6 +266,21 @@ static void expression() {
     parsePrecedence(PREC_ASSIGNMENT);
 }
 
+/*
+ * An “expression statement” is simply an expression followed by a semicolon. 
+ */
+static void expressionStatement() {
+    expression();
+    consume(TOKEN_SEMICOLON, "Expect ';' after expression.");
+    emitByte(OP_POP);
+
+    /*
+     * Semantically, an expression statement evaluates the expression and
+     * discards the result. The compiler directly encodes that behavior.
+     * It compiles the expression, and then emits an OP_POP instruction.
+     */
+}
+
 static void printStatement() {
     expression();
     consume(TOKEN_SEMICOLON, "Expect ';' after value.");
@@ -279,7 +294,10 @@ static void declaration() {
 static void statement() {
     if (match(TOKEN_PRINT)) {
         printStatement();
+    } else {
+        expressionStatement();
     }
+
 }
 
 bool compile(const char* source, Chunk* chunk) {
