@@ -286,7 +286,7 @@ static void varDeclaration() {
     if (match(TOKEN_EQUAL)) {
         expression();
     } else {
-        emitByte(OP_NIL);
+        emitByte(OP_NULL);
     }
     consume(TOKEN_SEMICOLON,
             "Expect ';' after variable declaration.");
