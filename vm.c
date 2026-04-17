@@ -176,9 +176,6 @@ push(valueType(a op b)); \
             }
             case OP_RETURN: {
                 // Exit interpreter
-                printValue(pop());
-                printf("\n");
-
                 return INTERPRET_OK;
             }
         }
