@@ -380,5 +380,6 @@ bool compile(const char* source, Chunk* chunk) {
         declaration();
     }
 
+    endCompiler();
     return !parser.hadError;
 }
